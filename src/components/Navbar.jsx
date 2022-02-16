@@ -1,9 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
     const location = useLocation();
-    console.log(location);
+    const amount = useSelector(state => state.amount)
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-success">
@@ -25,7 +26,7 @@ const Navbar = () => {
                             </li>
 
                         </ul>
-                        {location.pathname === "/" && <button disabled={true} className="btn btn-primary ms-2">Your Balance : 0</button>}
+                        {location.pathname === "/" && <button disabled={true} className="btn btn-primary ms-2">Your Balance : {amount}</button>}
                     </div>
                 </div>
             </nav>
